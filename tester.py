@@ -9,7 +9,7 @@ COMMANDS = {
     "js": "node vowelCounter.js",
 }
 
-def test_word(word, language, num_expected):
+def test_word(word, language, num_expected, vowels=None):
     """
     This function tests the specific implementation with an input word.
     
@@ -20,13 +20,17 @@ def test_word(word, language, num_expected):
     :param word: the word to count vowels from
     :param language: the string to determine which command to run
     :param num_expected: the number of vowels expected from the word
+    :param vowels: the vowel space to choose from  (optional)
     :return None
     """
-    print(f"Testing '{word}' in {language}: ", end="")
+    print(f"Testing {word:15s} in {language:6s}: ", end="")
 
 
     try:
-        os.system(f"{COMMANDS[language]} {word} > {language}_output.txt")
+        if vowels is None:
+          os.system(f"{COMMANDS[language]} {word} > {language}_output.txt")
+        else:
+          os.system(f"{COMMANDS[language]} {word} {vowels} > {language}_output.txt") 
     except Exception as e:
         print("Something went wrong... ")
         exit(e)
@@ -41,13 +45,20 @@ def test_word(word, language, num_expected):
 
 if __name__ == "__main__":
   # fmt: off
-  word_bank = {
+  word_bank_en = {
       "We": 1, "are": 2, "very": 1, "happy": 1, "to": 1, "inform": 2, "you": 2,
       "that": 1, "we": 1, "decided": 3, "to": 1, "proceed": 3, "further": 2,
       "with": 1, "your": 2, "application": 5, "for": 1, "the": 1, "Software": 3,
       "Engineer": 4, "track": 1,
-  } # fmt: on
+  } 
+  word_bank_de = {
+      "Das": 1, "schöne": 2, "Mädchen": 2, "mag": 1, "den": 1, "langen": 2,
+      "Fußballspieler": 5,
+  }
+  # fmt: on
   
   for language in ["python", "java", "js"]:
-      for word in word_bank:
-          test_word(word, language, word_bank[word])
+      for word in word_bank_en:
+          test_word(word, language, word_bank_en[word])
+      for word in word_bank_de:
+          test_word(word, language, word_bank_de[word], vowels="aeiouüöä")
