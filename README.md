@@ -10,6 +10,8 @@ My three main languages are used to implement this, in various styles:
 - [x] Java OOP
 - [x] JavaScript
 
+A test script also exists to test the different implementations.
+
 ## Usage
 
 Parameters listed in `< >` are mandatory
@@ -36,4 +38,10 @@ $ java VowelCounter <String inputWord> [String vowelSpace]
 
 ```
 $ node vowelCounter.js <inputWord:String> [vowelSpace:String]
+```
+
+### 4. Test Script
+
+```
+$ python tester.py
 ```
