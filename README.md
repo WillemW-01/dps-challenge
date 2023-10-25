@@ -6,8 +6,8 @@ This project is a collection of implementations of a simple vowel counter.
 
 My three main languages are used to implement this, in various styles:
 
-- [ ] Pythonic
-- [ ] Java OOP
+- [x] Pythonic
+- [x] Java OOP
 - [ ] JavaScript HTTP
 
 ## Usage
@@ -20,4 +20,11 @@ Parameters listed in `[ ]` are optional
 
 ```
 $ python vowel_counter.py <input_word:str> [vowel_list:str]
+```
+
+### 2. Java
+
+```
+$ javac VowelCounter.java
+$ java VowelCounter <String inputWord> [<String vowelList>]
 ```
