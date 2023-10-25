@@ -70,10 +70,10 @@ public class VowelCounter {
    * @param args
    */
   public static void main(String[] args) {
-    String inputString = args[0];
+    String inputString = args[0].toLowerCase();
     char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
     if (args.length == 2) {
-      vowels = args[1].toCharArray();
+      vowels = args[1].toLowerCase().toCharArray();
     }
 
     VowelCounter vowelCounter = new VowelCounter(vowels);

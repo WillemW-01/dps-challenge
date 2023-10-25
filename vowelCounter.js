@@ -11,10 +11,10 @@
  */
 
 // first, get the input word and vowel space from the terminal
-let inputWord = process.argv[2];
+let inputWord = process.argv[2].toLowerCase();
 let vowels = "aeiou".split("");
 if (process.argv.length == 4) {
-  vowels = process.argv[3].split("");
+  vowels = process.argv[3].toLowerCase().split("");
 }
 
 // then we create a regex string that will match any of the vowels
