@@ -26,5 +26,5 @@ $ python vowel_counter.py <input_word:str> [vowel_list:str]
 
 ```
 $ javac VowelCounter.java
-$ java VowelCounter <String inputWord> [<String vowelList>]
+$ java VowelCounter <String inputWord> [String vowelList]
 ```
