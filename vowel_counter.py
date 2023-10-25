@@ -10,6 +10,7 @@ if len(sys.argv) == 3:
 
 """
 Assumptions:
+------------
   - all letters are unicode
   - no letters are punctuation characters
   - letters can be any vowel or consonent in any language

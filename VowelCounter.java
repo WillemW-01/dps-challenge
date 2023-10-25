@@ -12,7 +12,7 @@
  * 
  * Assumptions:
  * ------------
- * - all letters in input word is Unicode
+ * - all letters in input word are Unicode
  * 
  */
 
