@@ -25,7 +25,6 @@ def test_word(word, language, num_expected, vowels=None):
     """
     print(f"Testing {word:15s} in {language:6s}: ", end="")
 
-
     try:
         if vowels is None:
           os.system(f"{COMMANDS[language]} {word} > {language}_output.txt")
@@ -38,6 +37,7 @@ def test_word(word, language, num_expected, vowels=None):
     result = open(f"{language}_output.txt").read()
     index = result.rfind(":") + 1 # find the ": <num>"
     num_result = int(result[index:])
+    
     if num_result == num_expected:
         print(f"{COLOR_PASSED}Passed!{COLOR_END}")
     else:
