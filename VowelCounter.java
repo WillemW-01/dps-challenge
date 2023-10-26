@@ -13,6 +13,7 @@
  * Assumptions:
  * ------------
  * - all letters in input word are Unicode
+ * - vowels can be vowels from any language
  * 
  */
 
@@ -26,12 +27,14 @@ public class VowelCounter {
   /**
    * Does the letter exist in the vowel space?
    * 
+   * Assumes vowel instance variable contains only lower case letters
+   * 
    * @param letter the character to check
    * @return true if letter is in vowel space, false if not
    */
   private boolean is_letter_vowel(char letter) {
     for (char c : this.vowels) {
-      if (c == letter) {
+      if (Character.toLowerCase(letter) == c) {
         return true;
       }
     }
@@ -44,7 +47,11 @@ public class VowelCounter {
    * @param vowels the vowels to belong to this object
    */
   public VowelCounter(char[] vowels) {
-    this.vowels = vowels;
+    // Deep copy of vowel array
+    this.vowels = new char[vowels.length];
+    for (int i = 0; i < vowels.length; i++) {
+      this.vowels[i] = Character.toLowerCase(vowels[i]);
+    }
   }
 
   /**
@@ -58,7 +65,7 @@ public class VowelCounter {
     int count = 0;
     for (char letter : inputString.toCharArray()) {
       if (this.is_letter_vowel(letter)) {
-        count += 1;
+        count++;
       }
     }
     return count;
@@ -67,13 +74,15 @@ public class VowelCounter {
   /**
    * Driver code to test the implementation
    * 
+   * Ensuring case insensitivity rests on the implementation and not the client.
+   * 
    * @param args
    */
   public static void main(String[] args) {
-    String inputString = args[0].toLowerCase();
+    String inputString = args[0];
     char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
     if (args.length == 2) {
-      vowels = args[1].toLowerCase().toCharArray();
+      vowels = args[1].toCharArray();
     }
 
     VowelCounter vowelCounter = new VowelCounter(vowels);
